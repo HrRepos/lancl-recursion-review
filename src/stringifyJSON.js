@@ -20,7 +20,7 @@ var stringifyJSON = function(obj) {
   } else if ( typeof obj === 'object') {
     return '{' + _.reduce(obj, function(acc, value, key){
       // 1 additional check, for object type (for corner cases left)
-      if (obj[key] === undefined || typeof obj[key] === 'function'){
+      if ( obj[key] === undefined || typeof obj[key] === 'function' ){
         return acc;
       } else {
         return [...acc, stringifyJSON(key) + ':' + stringifyJSON(obj[key])];
